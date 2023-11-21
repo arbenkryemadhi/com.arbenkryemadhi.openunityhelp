@@ -20,7 +20,7 @@
     "samples": [
         {
             "displayName": "Sample scene",
-            "description": "<brief-description>",
+            "description": "Sample scene",
             "path": "Samples~/SampleScene"
         }
     ]
