@@ -12,7 +12,7 @@ namespace OpenUnityHelp
         ///<summary>
         /// Returns a random float within [minInclusive; maxInclusive] with a specified amount of decimal spaces (default = 2).
         ///</summary>
-        public static float GetRandomNum(float minInclusive, float maxInclusive, int decimalSpaces = 2)
+        public static float RandomNum(float minInclusive, float maxInclusive, int decimalSpaces = 2)
         {
             float tempRandomValue;
 
@@ -26,27 +26,27 @@ namespace OpenUnityHelp
         /// <summary>
         /// Returns a random float within [pairMinMax.x; pairMinMax.y] which are stored in pairMinMax Vector2 with a specified amount of decimal spaces.
         /// </summary>
-        public static float GetRandomNum(Vector2 pairMinMax, int decimalSpaces)
+        public static float RandomNum(Vector2 pairMinMax, int decimalSpaces)
 		{
-			return GetRandomNum(pairMinMax.x, pairMinMax.y, decimalSpaces);
+			return RandomNum(pairMinMax.x, pairMinMax.y, decimalSpaces);
 		}
 
 
         /// <summary>
         /// Return a random int between [minInclusive; maxExclusive[.
         /// </summary>
-        public static int GetRandomNum(int minInclusive, int maxExclusive)
+        public static int RandomNum(int minInclusive, int maxExclusive)
         {
-            return UnityEngine.Random.Range(minInclusive, maxExclusive);
+            return RandomNum(minInclusive, maxExclusive);
         }
 
 
         /// <summary>
         /// Returns a random int within [pairMinMax.x; pairMinMax.y[ which are stored in pairMinMax Vector2.
         /// </summary>
-        public static int GetRandomNum(Vector2 pairMinMax)
+        public static int RandomNum(Vector2 pairMinMax)
         {
-            return GetRandomNum((int)pairMinMax.x, (int)pairMinMax.y);
+            return RandomNum((int)pairMinMax.x, (int)pairMinMax.y);
         }
         #endregion
 
@@ -61,7 +61,7 @@ namespace OpenUnityHelp
             for (int i = 0; i < numberOfFloats; i++)
             {
                 // Generates a random float within the parameters and adds it to the return list.
-                randomFloats.Add(GetRandomNum(minInclusive, maxInclusive, decimalSpaces));
+                randomFloats.Add(RandomNum(minInclusive, maxInclusive, decimalSpaces));
             }
 
             return randomFloats;
@@ -89,7 +89,7 @@ namespace OpenUnityHelp
             {
                 for (int i = 0; i < numberOfInts; i++)
                 {
-                    randomInts.Add(GetRandomNum(minInclusive, maxExclusive));
+                    randomInts.Add(RandomNum(minInclusive, maxExclusive));
                 }
                 
             }
@@ -107,7 +107,7 @@ namespace OpenUnityHelp
                 for (int i = 0; i < numberOfInts; i++)
                 {
                     // Generates a random index
-                    int randIndex = GetRandomNum(0, possibleInts.Count);
+                    int randIndex = RandomNum(0, possibleInts.Count);
 
                     // Adds an int from the possible ints list to the one to be returned.
                     randomInts.Add(possibleInts[randIndex]);
@@ -135,9 +135,9 @@ namespace OpenUnityHelp
         /// <summary>
         /// Returns random bool value with 50/50 chance (true/false).
         /// </summary>
-        public static bool RandomBool()
+        public static bool GetRandomBool()
 		{
-			return GetRandomNum(0, 2) == 0;
+			return RandomNum(0, 2) == 0;
 		}
 
 
