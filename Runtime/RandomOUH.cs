@@ -149,7 +149,6 @@ namespace OpenUnityHelp
 			return UnityEngine.Random.Range(0, 100) + 1 <= percentage;
 		}
 
-		// Testttt
         /// <summary>
         /// Returns a bool with given probability in %. If probability is 25% it will return true each 4th time on an average.
         /// </summary>
