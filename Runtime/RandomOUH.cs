@@ -137,7 +137,7 @@ namespace OpenUnityHelp
         /// </summary>
         public static bool RandomBool()
 		{
-			return UnityEngine.Random.Range(0, 2) == 0;
+			return GetRandomNum(0, 2) == 0;
 		}
 
 
