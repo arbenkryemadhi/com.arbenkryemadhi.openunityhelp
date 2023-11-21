@@ -1,0 +1,28 @@
+{
+    "name": "com.arbenkryemadhi.openunityhelp",
+    "version": "1.0.0",
+    "displayName": "Open Unity Help",
+    "description": "Open Unity Help is an open-source project dedicated to helping Unity Game Developers where everyone is welcome to contribute.",
+    "unity": "2019.1",
+    "documentationUrl": "https://example.com/",
+    "changelogUrl": "https://example.com/changelog.html",
+    "licensesUrl": "https://example.com/licensing.html",
+    "dependencies": {},
+    "keywords": [
+        "keyword1",
+        "keyword2",
+        "keyword3"
+    ],
+    "author": {
+        "name": "Arben Kryemadhi",
+        "email": "arbenofc@gmail.com",
+        "url": "https://linktr.ee/arbenkryemadhi"
+    },
+    "samples": [
+        {
+            "displayName": "Sample scene",
+            "description": "<brief-description>",
+            "path": "Samples~/SampleScene"
+        }
+    ]
+}
