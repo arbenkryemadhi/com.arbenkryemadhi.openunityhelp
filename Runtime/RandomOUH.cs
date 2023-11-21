@@ -37,7 +37,7 @@ namespace OpenUnityHelp
         /// </summary>
         public static int RandomNum(int minInclusive, int maxExclusive)
         {
-            return RandomNum(minInclusive, maxExclusive);
+            return UnityEngine.Random.Range(minInclusive, maxExclusive);
         }
 
 
@@ -54,7 +54,7 @@ namespace OpenUnityHelp
         ///<summary>
         /// Returns a random list of floats within [minInclusive; maxInclusive] with a specified amount of decimal spaces (default = 2).
         ///</summary>
-        public static List<float> GetRandomNums(float minInclusive, float maxInclusive, int numberOfFloats, int decimalSpaces = 2)
+        public static List<float> RandomNums(float minInclusive, float maxInclusive, int numberOfFloats, int decimalSpaces = 2)
         {
             List<float> randomFloats = new List<float>();
 
@@ -71,16 +71,16 @@ namespace OpenUnityHelp
         /// <summary>
         /// Returns a random list of floats within [pairMinMax.x; pairMinMax.y] which are stored in pairMinMax Vector2 with a specified amount of decimal spaces.
         /// </summary>
-        public static List<float> GetRandomNums(Vector2 pairMinMax, int numberOfFloats, int decimalSpaces)
+        public static List<float> RandomNums(Vector2 pairMinMax, int numberOfFloats, int decimalSpaces)
 		{
-			return GetRandomNums(pairMinMax.x, pairMinMax.y, numberOfFloats, decimalSpaces);
+			return RandomNums(pairMinMax.x, pairMinMax.y, numberOfFloats, decimalSpaces);
 		}
 
 
         ///<summary>
         /// Returns a random list of ints within [minInclusive; maxExclusive[ with the ability for the same int to be repeated (default = true).
         ///</summary>
-        public static List<int> GetRandomNums(int minInclusive, int maxExclusive, int numberOfInts, bool allowRepeatedInts = true)
+        public static List<int> RandomNums(int minInclusive, int maxExclusive, int numberOfInts, bool allowRepeatedInts = true)
         {
             List<int> randomInts = new List<int>();
 
@@ -125,9 +125,9 @@ namespace OpenUnityHelp
         /// <summary>
         /// Returns a random list of ints within [pairMinMax.x; pairMinMax.y[ which are stored in pairMinMax Vector2 with the ability for the same int to be repeated (default = true).
         /// </summary>
-        public static List<int> GetRandomNums(Vector2 pairMinMax, int numberOfInts, bool allowRepeatedInts = true)
+        public static List<int> RandomNums(Vector2 pairMinMax, int numberOfInts, bool allowRepeatedInts = true)
         {
-            return GetRandomNums((int)pairMinMax.x, (int)pairMinMax.y, numberOfInts, allowRepeatedInts);
+            return RandomNums((int)pairMinMax.x, (int)pairMinMax.y, numberOfInts, allowRepeatedInts);
         }
 
         #endregion
@@ -135,26 +135,26 @@ namespace OpenUnityHelp
         /// <summary>
         /// Returns random bool value with 50/50 chance (true/false).
         /// </summary>
-        public static bool GetRandomBool()
+        public static bool RandomBool()
 		{
 			return RandomNum(0, 2) == 0;
 		}
 
 
-		/// <summary>
-		/// Returns a bool with given percentage. If percentage is 25 it will return true each 4th time on an average.
-		/// </summary>
-		public static bool RandomBool(int percentage)
-		{
-			return UnityEngine.Random.Range(0, 100) + 1 <= percentage;
-		}
-
         /// <summary>
         /// Returns a bool with given probability in %. If probability is 25% it will return true each 4th time on an average.
         /// </summary>
+        public static bool RandomBool(int percentage)
+		{
+			return RandomNum(0, 100) + 1 <= percentage;
+		}
+
+        /// <summary>
+        /// Returns a bool with given probability in %. If probability is 25.0% it will return true each 4th time on an average.
+        /// </summary>
         public static bool RandomBool(float probability)
 		{
-			return UnityEngine.Random.Range(0f, 100f) < probability;
+			return RandomNum(0f, 100f) <= probability;
 		}
 
 
@@ -163,7 +163,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static T RandomItem<T>(T[] array)
 		{
-			return array[UnityEngine.Random.Range(0, array.Length)];
+			return array[RandomNum(0, array.Length)];
 		}
 
 
@@ -172,7 +172,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static T RandomItem<T>(List<T> list)
 		{
-			return list[UnityEngine.Random.Range(0, list.Count)];
+			return list[RandomNum(0, list.Count)];
 		}
 
 		/// <summary>
@@ -181,7 +181,7 @@ namespace OpenUnityHelp
 		public static T RandomItem<T>()
 		{
 			var values = Enum.GetValues(typeof(T));
-			return (T)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+			return (T)values.GetValue(RandomNum(0, values.Length));
 		}
 
 
@@ -190,7 +190,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static int RandomIndex<T>(List<T> list)
         {
-			return UnityEngine.Random.Range(0, list.Count);
+			return RandomNum(0, list.Count);
         }
 
 
@@ -199,7 +199,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static int RandomIndex<T>(T[] array)
 		{
-			return UnityEngine.Random.Range(0, array.Length);
+			return RandomNum(0, array.Length);
 		}
 
 		
@@ -227,7 +227,7 @@ namespace OpenUnityHelp
 		{
 			for (int i = 1; i < list.Count; i++)
 			{
-				int randInt = UnityEngine.Random.Range(0, list.Count);
+				int randInt = RandomNum(0, list.Count);
 				T temp = list[i];
 				list[i] = list[randInt];
 				list[randInt] = temp;
@@ -241,7 +241,7 @@ namespace OpenUnityHelp
         {
             for (int i = 1; i < array.Length; i++)
             {
-                int indRnd = UnityEngine.Random.Range(0, array.Length);
+                int indRnd = RandomNum(0, array.Length);
                 T temp = array[i];
                 array[i] = array[indRnd];
                 array[indRnd] = temp;
@@ -258,7 +258,7 @@ namespace OpenUnityHelp
 
 			for (int i = 1; i < list.Count; i++)
 			{
-				int randInt = UnityEngine.Random.Range(0, list.Count);
+				int randInt = RandomNum(0, list.Count);
 				T temp = shuffledList[i];
 				shuffledList[i] = shuffledList[randInt];
 				shuffledList[randInt] = temp;
@@ -277,7 +277,7 @@ namespace OpenUnityHelp
 
 			for (int i = 1; i < array.Length; i++)
 			{
-				int randInt = UnityEngine.Random.Range(0, array.Length);
+				int randInt = RandomNum(0, array.Length);
 				T temp = shuffledArray[i];
 				shuffledArray[i] = shuffledArray[randInt];
 				shuffledArray[randInt] = temp;
@@ -292,7 +292,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static Vector2 RandomPointOnLine(Vector2 point1, Vector2 point2)
 		{
-			float t = UnityEngine.Random.Range(0f, 1f);
+			float t = RandomNum(0f, 1f);
 			return new Vector2(Mathf.Lerp(point1.x, point2.x, t), Mathf.Lerp(point1.y, point2.y, t));
 		}
 
@@ -302,7 +302,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static Vector3 RandomPointOnLine3D(Vector3 point1, Vector3 point2)
 		{
-			float t = UnityEngine.Random.Range(0f, 1f);
+			float t = RandomNum(0f, 1f);
 			return new Vector3(Mathf.Lerp(point1.x, point2.x, t), Mathf.Lerp(point1.y, point2.y, t), Mathf.Lerp(point1.z, point2.z, t));
 		}
 
@@ -321,7 +321,7 @@ namespace OpenUnityHelp
 		/// </summary>
 		public static Vector2 RandomPointInsideRect(Rect rect)
 		{
-			return new Vector2(UnityEngine.Random.Range(rect.xMin, rect.xMax), UnityEngine.Random.Range(rect.yMin, rect.yMax));
+			return new Vector2(RandomNum(rect.xMin, rect.xMax), RandomNum(rect.yMin, rect.yMax));
 		}
 
 
@@ -331,7 +331,7 @@ namespace OpenUnityHelp
 		public static Vector2 RandomPointOnRectBorder(Rect rect)
 		{
 			float perimeterLength = (rect.width + rect.height) * 2f;
-			float pointOnPerimeter = UnityEngine.Random.Range(0f, perimeterLength);
+			float pointOnPerimeter = RandomNum(0f, perimeterLength);
 
 			if (pointOnPerimeter < rect.width)//top border
 				return new Vector2(rect.xMin + pointOnPerimeter, rect.yMax);
