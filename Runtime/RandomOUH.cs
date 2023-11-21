@@ -150,10 +150,10 @@ namespace OpenUnityHelp
 		}
 
 
-		/// <summary>
-		/// Gets a chance with given probability in %. If probability is 25% it will return true each 4th time on an average.
-		/// </summary>
-		public static bool RandomBool(float probability)
+        /// <summary>
+        /// Returns a bool with given probability in %. If probability is 25% it will return true each 4th time on an average.
+        /// </summary>
+        public static bool RandomBool(float probability)
 		{
 			return UnityEngine.Random.Range(0f, 100f) < probability;
 		}
