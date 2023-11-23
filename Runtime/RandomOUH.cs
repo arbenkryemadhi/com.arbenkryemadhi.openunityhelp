@@ -9,9 +9,9 @@ namespace OpenUnityHelp
     public static class RandomOUH
     {
         #region Random Number
-        ///<summary>
-        /// Returns a random float within [minInclusive; maxInclusive] with a specified amount of decimal spaces (default = 2).
-        ///</summary>
+        /// <summary>
+		/// Returns a random float within [<paramref name="minInclusive"/>; <paramref name="maxInclusive"/>] with a specified amount of <paramref name="decimalSpaces"/> (default = 2).
+		/// </summary>
         public static float RandomNum(float minInclusive, float maxInclusive, int decimalSpaces = 2)
         {
             float tempRandomValue;
@@ -24,16 +24,17 @@ namespace OpenUnityHelp
 
 
         /// <summary>
-        /// Returns a random float within [pairMinMax.x; pairMinMax.y] which are stored in pairMinMax Vector2 with a specified amount of decimal spaces.
+        /// Returns a random float within [<paramref name="pairMinMax"/>.x; <paramref name="pairMinMax"/>.y]
+		/// with a specified amount of <paramref name="decimalSpaces"/> (default = 2).
         /// </summary>
-        public static float RandomNum(Vector2 pairMinMax, int decimalSpaces)
+        public static float RandomNum(Vector2 pairMinMax, int decimalSpaces = 2)
 		{
 			return RandomNum(pairMinMax.x, pairMinMax.y, decimalSpaces);
 		}
 
 
         /// <summary>
-        /// Return a random int between [minInclusive; maxExclusive[.
+        /// Return a random int between [<paramref name="minInclusive"/>; <paramref name="maxExclusive"/>[.
         /// </summary>
         public static int RandomNum(int minInclusive, int maxExclusive)
         {
@@ -42,7 +43,7 @@ namespace OpenUnityHelp
 
 
         /// <summary>
-        /// Returns a random int within [pairMinMax.x; pairMinMax.y[ which are stored in pairMinMax Vector2.
+        /// Returns a random int within [<paramref name="pairMinMax"/>.x; <paramref name="pairMinMax"/>.y[.
         /// </summary>
         public static int RandomNum(Vector2 pairMinMax)
         {
