@@ -12,7 +12,6 @@ namespace OpenUnityHelp
         private float _upperTimeLimit;
         private float _lowerTimeLimit;
         private float _currentTime;
-        private bool _isRunning = false;
         private bool _hasFinished = true;
         private CountingMode _countingMode;
 
@@ -27,6 +26,7 @@ namespace OpenUnityHelp
         public float RunningTime { get { return _runningTime; } set { _runningTime = value; } }
         public float UpperTimeLimit { get { return _upperTimeLimit; } set { _upperTimeLimit = value; } }
         public float LowerTimeLimit { get { return _lowerTimeLimit; } set { _lowerTimeLimit = value; } }
+        public float HasFinished { get { return _hasFinished; } set { _hasFinished = value; } }
 
         #region Instance constructors
         /// <summary>
@@ -55,18 +55,16 @@ namespace OpenUnityHelp
         {
             _currentTime = _startingTime;
             _runningTime = 0f;
-            _isRunning = true;
             _hasFinished = false;
         }
 
-        public bool HasFinished() { return _hasFinished; }
 
         /// <summary>
         /// Updates the timer and does the necesary checks. Should be called every Update.
         /// </summary>
         public void UpdateTimer()
         {
-            if (!_isRunning) { return; }
+            if (_hasFinished) { return; }
 
             if (_countingMode == CountingMode.CountDown) { CountDownUpdate(); }
             else { CountUpUpdate(); }
@@ -79,7 +77,6 @@ namespace OpenUnityHelp
             if (_currentTime <= _lowerTimeLimit) // If timer has reached lower limit.
             {   
                 _hasFinished = true;
-                _isRunning = false;
                 return; 
             }
 
@@ -92,7 +89,6 @@ namespace OpenUnityHelp
             if (_currentTime >= _upperTimeLimit) // If timer has reached upper limit.
             {
                 _hasFinished = true;
-                _isRunning = false;
                 return;
             }
 
