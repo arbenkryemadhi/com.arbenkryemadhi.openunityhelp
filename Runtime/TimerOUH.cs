@@ -26,7 +26,7 @@ namespace OpenUnityHelp
         public float RunningTime { get { return _runningTime; } set { _runningTime = value; } }
         public float UpperTimeLimit { get { return _upperTimeLimit; } set { _upperTimeLimit = value; } }
         public float LowerTimeLimit { get { return _lowerTimeLimit; } set { _lowerTimeLimit = value; } }
-        public float HasFinished { get { return _hasFinished; } }
+        public bool HasFinished { get { return _hasFinished; } }
 
         #region Instance constructors
         /// <summary>
