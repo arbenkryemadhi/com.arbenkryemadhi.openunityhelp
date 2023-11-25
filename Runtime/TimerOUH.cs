@@ -12,8 +12,8 @@ namespace OpenUnityHelp
         private float _upperTimeLimit;
         private float _lowerTimeLimit;
         private float _currentTime;
-        private bool _isRunning;
-        private bool _hasFinished;
+        private bool _isRunning = false;
+        private bool _hasFinished = true;
         private CountingMode _countingMode;
 
         public enum CountingMode
