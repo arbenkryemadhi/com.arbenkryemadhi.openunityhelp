@@ -8,7 +8,7 @@ Everyone is more than welcome to contribute, just open a pull request and it wil
 ### Package Manager (Recommended)
 - Open `Window > Package Manager` in Unity.
 - Press the plus button and choose `Add package from git URL...`.
-- Paste in `https://github.com/arbenkryemadhi/com.arbenkryemadhi.openunityhelp` and then press the add button.
+- Paste in `https://github.com/arbenkryemadhi/com.arbenkryemadhi.openunityhelp.git` and then press the add button.
 - __Note__: In your project `Api Compatibility Level` must be set to `.NET 4.x`, this can be found in `Edit > Project Settings... > Player > Other Settings`
 
 # Contact
