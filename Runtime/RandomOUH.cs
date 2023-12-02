@@ -162,7 +162,7 @@ namespace OpenUnityHelp
 		/// <summary>
 		/// Returns random item from array.
 		/// </summary>
-		public static T RandomItem<T>(T[] array)
+		public static T RandomElement<T>(T[] array)
 		{
 			return array[RandomNum(0, array.Length)];
 		}
@@ -171,7 +171,7 @@ namespace OpenUnityHelp
 		/// <summary>
 		/// Returns random item from list.
 		/// </summary>
-		public static T RandomItem<T>(List<T> list)
+		public static T RandomElement<T>(List<T> list)
 		{
 			return list[RandomNum(0, list.Count)];
 		}
@@ -179,7 +179,7 @@ namespace OpenUnityHelp
 		/// <summary>
 		/// Returns random enum item.
 		/// </summary>
-		public static T RandomItem<T>()
+		public static T RandomElement<T>()
 		{
 			var values = Enum.GetValues(typeof(T));
 			return (T)values.GetValue(RandomNum(0, values.Length));
@@ -207,13 +207,13 @@ namespace OpenUnityHelp
 		/// <summary>
 		/// Return sub-list of random items from origin list without repeating.
 		/// </summary>
-		public static List<T> ReturnRandomItems<T>(IList<T> list, int count)
+		public static List<T> ReturnRandomElements<T>(IList<T> list, int count)
 		{
 			List<T> items = new List<T>();
 			List<int> remainedIndexes = Enumerable.Range(0, list.Count).ToList();
 			for (int i = 0; i < count; i++)
 			{
-				int selectedIndex = RandomItem(remainedIndexes);
+				int selectedIndex = RandomElement(remainedIndexes);
 				remainedIndexes.Remove(selectedIndex);
 				items.Add(list[selectedIndex]);
 			}
